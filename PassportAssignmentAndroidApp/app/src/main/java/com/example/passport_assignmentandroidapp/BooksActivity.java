@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.passport_assignmentandroidapp.R;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +43,10 @@ public class BooksActivity extends AppCompatActivity {
         // Initialize the adapter here
         bookAdapter = new BookAdapter(new ArrayList<>());
         recyclerView.setAdapter(bookAdapter);
+
+        // Set item decoration with spacing
+        int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.spacing_between_books);
+        recyclerView.addItemDecoration(new BookItemDecoration(spacingInPixels));
 
         // Fetch books asynchronously
         new FetchBooksTask().execute();

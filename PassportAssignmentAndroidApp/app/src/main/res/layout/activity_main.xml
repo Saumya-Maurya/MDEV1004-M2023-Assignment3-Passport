@@ -25,8 +25,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/app_input_field"
             android:hint="Username"
+            android:textColorHint="@color/app_light_text"
             android:padding="12dp"
-            android:textColor="@color/app_light_text" />
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -35,6 +36,7 @@
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/app_input_field"
             android:hint="Password"
+            android:textColorHint="@color/app_light_text"
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="@color/app_light_text" />
