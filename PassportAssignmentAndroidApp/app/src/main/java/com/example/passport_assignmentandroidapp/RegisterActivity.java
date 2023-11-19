@@ -1,17 +1,14 @@
 package com.example.passport_assignmentandroidapp;
 
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.passport_assignmentandroidapp.R;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -46,13 +43,16 @@ public class RegisterActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString().trim();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
 
-        // Check if passwords match
+        if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (!password.equals(confirmPassword)) {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Execute AsyncTask to perform the registration
         new RegisterTask().execute(username, password);
     }
 
@@ -68,7 +68,6 @@ public class RegisterActivity extends AppCompatActivity {
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
 
-                // Create the request body
                 String requestBody = "username=" + username + "&password=" + password;
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
@@ -79,10 +78,8 @@ public class RegisterActivity extends AppCompatActivity {
                 int responseCode = httpURLConnection.getResponseCode();
 
                 if (responseCode == HttpURLConnection.HTTP_OK) {
-                    // Registration successful
                     return "Registration successful";
                 } else {
-                    // Handle other response codes
                     return "Registration failed, HTTP response code: " + responseCode;
                 }
 
@@ -97,8 +94,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(RegisterActivity.this, result, Toast.LENGTH_SHORT).show();
+            if (result.equals("Registration successful")) {
+                Toast.makeText(RegisterActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(RegisterActivity.this, "Registration failed: " + result, Toast.LENGTH_SHORT).show();
+            }
         }
     }
-
 }

@@ -6,12 +6,32 @@
     android:background="@color/app_dark_background">
 
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="311dp"
+        android:layout_height="58dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="33dp"
+        android:gravity="center"
+        android:text="MDEV1004 - Assignment - Passport"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="50dp"
+        android:layout_marginBottom="210dp"
         android:orientation="vertical">
 
         <EditText
@@ -20,43 +40,43 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/app_input_field"
             android:hint="Username"
-            android:textColorHint="@color/app_light_text"
             android:padding="12dp"
-            android:textColor="@color/app_light_text"/>
+            android:textColor="@color/app_light_text"
+            android:textColorHint="@color/app_light_text" />
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/app_input_field"
             android:hint="Password"
-            android:textColorHint="@color/app_light_text"
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="@color/app_light_text"
-            android:layout_marginTop="20dp"/>
+            android:textColorHint="@color/app_light_text" />
 
         <EditText
             android:id="@+id/editTextConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/app_input_field"
             android:hint="Confirm Password"
-            android:textColorHint="@color/app_light_text"
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="@color/app_light_text"
-            android:layout_marginTop="20dp"/>
+            android:textColorHint="@color/app_light_text" />
 
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:layout_marginTop="30dp"
             android:background="@drawable/app_button_background"
-            android:textColor="@color/app_dark_background"
             android:padding="12dp"
-            android:layout_marginTop="30dp"/>
+            android:text="Register"
+            android:textColor="@color/app_dark_background" />
 
         <TextView
             android:id="@+id/textViewGoToLogin"
@@ -65,10 +85,10 @@
             android:layout_below="@id/btnRegister"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:onClick="goToLogin"
             android:text="Already have an account? Go to Login"
             android:textColor="@color/app_accent_blue"
-            android:textSize="16sp"
-            android:clickable="true"
-            android:onClick="goToLogin" />
+            android:textSize="16sp" />
     </LinearLayout>
 </RelativeLayout>

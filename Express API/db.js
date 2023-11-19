@@ -1,3 +1,13 @@
+/*
+ * Filename: index.js
+ * Sanket Parab - 2200555449 
+ * Saumya Maurya - 200553573
+ * Ruchit Suhagia – 200554055
+ * Tanveer Singh - 200554065
+ * Date: 2023-12-12
+ */
+
+
 const mongoose = require("mongoose");
 const { Books } = require('./src/models/model');
 const { User } = require('./src/models/model');
